@@ -1,29 +1,28 @@
 # Advanced Statistics for Neuroscience Exam preparation
 ## Topics
-1. [Mean, median, mode (10pt)](#overview)
+1. [Mean, median, mode (10pt)](#mean-median-mode)
     - Be able to calculate by hand
-2. [Distributions (10pt)](#overview-1)
+2. [Distributions (10pt)](#distributions)
     - Names, values integers or not, positive or not, infinite or not, one or two parameters
-3. [Normally distributed samples (10pt)](#overview-2)
+3. [Normally distributed samples (10pt)](#normally-distributed-samples)
     - Formulas for mean, variance, etc.
-4. [T-test, F-test, Chi-square-test, KS-test (10pt)](#overview-3)
+4. [T-test, F-test, Chi-square-test, KS-test (10pt)](#t-test-f-test-chi-square-test-ks-test)
     - What does each test, what properties do they compare
-5. [Measures for pairwise association (10pt)](#overview-4)
+5. [Measures for pairwise association (10pt)](#measures-for-pairwise-association)
     - formulas for Pearson, Rank-Order, Chi-square, mutual information
-6. [Linear regression (10pt)](#overview-5)
+6. [Linear regression (10pt)](#linear-regression)
     - Formulas for sum of squared errors and estimated variance, interpretation of log likelihood and BIC
-7. [Logistic regression (10pt)](#overview-6)
+7. [Logistic regression (10pt)](#logistic-regression)
     - probabilities and logits, construction of design matrices, formulat for binomial variance
-8. [FDR correction (10pt)](#overview-7)
+8. [FDR correction (10pt)](#fdr-correction)
     - Apply Benjamini-Hochberg criterion to p-values
-9. [Boostratpping (10pt)](#overview-8)
+9. [Boostratpping (10pt)](#boostratpping)
     - Explain computational steps of bootstrapping
-10. [Linear discriminant analysis (10pt)](#overview-9)
+10. [Linear discriminant analysis (10pt)](#linear-discriminant-analysis)
     - explain computational steps of LDA and potentially formulas
 11. [Formulas](#formulas)
 
-## 1. Mean, median, mode (10pt)
-### Overview
+## Mean, median, mode
 
 $\underline{Mean}$ is the average of a set. $\underline{Median}$ is the point that divides a distribution into two areas of equal size, i.e. the middle point (if dataset has an even number of points, take the average of the two center values). $\underline{Mode}$ is the most probable point (the most frequent number in the dataset). 
 
@@ -46,8 +45,9 @@ $$
 Std(x) = \sqrt{Var(x)}
 $$
 
-## 2. Distributions (10pt)
-### Overview
+---
+
+## Distributions
 
 Unimodal, bimodal, multimodal **be careful not to confuse *bimodal* and *binomial***
 
@@ -65,8 +65,9 @@ When the area to the left of the mode is larger, it is called 'negative skew', w
 
 *Chi-square distribution* $\chi^2$
 
-## 3. Normally distributed samples (10pt)
-### Overview
+---
+
+## Normally distributed samples
 
 Mean and variance of normally distributed data are listed in *Section 1*.
 
@@ -96,8 +97,9 @@ $$
 z_i = \frac{x_i - \mu}{\sigma}
 $$
 
-## 4. T-test, F-test, Chi-square-test, KS-test (10pt)
-### Overview
+---
+
+## T-test, F-test, Chi-square-test, KS-test
 
 *T-test* is a test for whether two populations differ under the null distribution. 
 
@@ -167,8 +169,8 @@ $$
 
 Where $N$ is the number of distinct categories the observations are binned into, $i$ is all of the integers between {${1,...,N}$}, $n_i$ is the number observed in each bin, and $n_e$ is the number expected per bin. 
 
-## 5. Measures for pairwise association (10pt)
-### Overview
+## Measures for pairwise association
+
 Parametric tests assume normal distribution, non-parametric tests don't.
 
 *Pearson's r* - also known as linear correlation coefficient. Given paired observations $(x_i, y_i)$, with $i=1,2,\ldots,N$, r is calculated as:
@@ -176,25 +178,28 @@ Parametric tests assume normal distribution, non-parametric tests don't.
 $$
 r = \frac{(x_i - \mu_{x})(y_i - \mu_{y})}{\sqrt{\sum_{i}(x_i - \mu_{x})^2} \sqrt{\sum_{i}(y_i - \mu_{y})^2}}
 $$
-## 6. Linear regression (10pt)
-### Overview
 
+---
 
-## 7. Logistic regression (10pt)
-### Overview
+## Linear regression
 
+---
 
-## 8. FDR correction (10pt)
-### Overview
+## Logistic regression
 
+---
 
-## 9. Boostratpping (10pt)
-### Overview
+## FDR correction
 
+---
 
-## 10. Linear discriminant analysis (10pt)
-### Overview
+## Boostrapping
 
+---
+
+## Linear discriminant analysis
+
+---
 
 ## Formulas
 
