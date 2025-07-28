@@ -13,7 +13,7 @@
 6. [Linear regression (10pt)](#linear-regression)
     - Formulas for sum of squared errors and estimated variance, interpretation of log likelihood and BIC
 7. [Logistic regression (10pt)](#logistic-regression)
-    - probabilities and logits, construction of design matrices, formulat for binomial variance
+    - probabilities and logits, construction of design matrices, formula for binomial variance
 8. [FDR correction (10pt)](#fdr-correction)
     - Apply Benjamini-Hochberg criterion to p-values
 9. [Boostratpping (10pt)](#boostratpping)
@@ -173,19 +173,88 @@ Where $N$ is the number of distinct categories the observations are binned into,
 
 Parametric tests assume normal distribution, non-parametric tests don't.
 
-*Pearson's r* - also known as linear correlation coefficient. Given paired observations $(x_i, y_i)$, with $i=1,2,\ldots,N$, r is calculated as:
+*Pearson's r*: also known as linear correlation coefficient, is a parametric test. Given paired observations $(x_i, y_i)$, with $i=1,2,\ldots,N$, r is calculated as:
 
 $$
 r = \frac{(x_i - \mu_{x})(y_i - \mu_{y})}{\sqrt{\sum_{i}(x_i - \mu_{x})^2} \sqrt{\sum_{i}(y_i - \mu_{y})^2}}
 $$
 
+Calculation of variance ignores Bessel's correction since the $N$ is assumed to be large. 
+
+Non-parametric (rank-order) correlations don't assume normality about the distribution. Nonparametric correlation is more robust when the corrolation is monotonic and nonlinear, as well as more resistant to outliers.
+
+To obtain rank-order correlation, sort all values of $x_i$ and $y_i$ separately in ascending order and replace the value with it's rank ($1,2,3,\ldots,N$), assigning all 'ties' (i.e. multiple identical values) to the mean of the ranks. 
+
+*Spearman Rank-Order Correlation*: Let $R_i$ be the rank of $x_i$ among all $x$ values, and $S_i$ be the rank of $y_i$ among all $y$ values, then rank-order correlation is:
+
+$$
+r_s = \frac{\sum_{i} (R_i - \mu_{R})(S_i - \mu_{S})}{\sqrt{\sum_{i}(R_i - \mu_{R})^2}\sqrt{\sum_{i}(S_i - \mu_{S})^2}}
+$$
+
+Where means are calculated as:
+
+$$
+\mu_{R} = \frac{1}{N}\sum_{i}R_i, \quad\quad \mu_{S} = \frac{1}{N}\sum_{i}S_i
+$$
+
+Significance is calculated from t-statistic of $r_s$ with $N-2$ degrees of freedom:
+
+$$
+t = r_s\sqrt{\frac{N-2}{1-r^2_s}}
+$$
+
+Information-based measures of association include *Shannon information*. Mutual information as a fraction of marginal entropies is expressed as:
+
+$$
+U(x,y) = 2 \frac{H(x) + H(y) - H(x,y)}{H(x) + H(y)}
+$$
+
+The result of this is 0 if $x$ and $y$ are independent, and unity if they are perfectly dependent. 
+
+Kendall's Tau and Wilcoxon rank-sum test are other nonparametric tests, with Kendall's tau using relative rank (higher/lower) and Wilcoxon rank-sum testing for medians of data.
+
 ---
 
 ## Linear regression
+*Linear regression* attempts to fit a line to a set of data using linear least squares, trying to minimize the summed square error (SSE). When attempting to fit $N$ observations $(x_i, y_i)$ to a straight line such that $y(x) = y(x; a,b) = a+bx$, and assuming that uncertainty $\sigma_{i}$ is known then using the following equations:
+
+$$
+SSE = \sum_{i=1}^{N} [y_i - y(x_i)]^2
+$$
+
+\begin{gather}
+S = \sum_{i} \frac{1}{\sigma_{i}^{2}}, \quad\quad S_x = \sum_{i} \frac{x_i}{\sigma_{i}^{2}}, S_y = \sum_{i} \frac{y_i}{\sigma_{i}^{2}} 
+\\
+S_{xx} = \sum_{i} \frac{x_{i}^{2}}{\sigma_{i}^{2}}, \quad\quad S_{xy} = \sum_{i} \frac{x_i y_i}{\sigma_{i}^{2}}
+\end{gather}
+
+If we assume the data to be normally distributed with uniform standard deviation $\sigma$, the denominators become 1, and the formulas can be simplified as:
+
+\begin{gather}
+S = \sum_{i} 1 = N, \quad\quad S_x = \sum_{i} x_{i}^{n}, \quad\quad S_y = \sum_{i} y_i \\
+t_i = (x_{i}^{n} - \frac{S_x}{S}), \quad\quad S_tt = \sum_{i} t_{i}^{2}, \quad\quad S_{ty} = \sum_{i} t_i y_i 
+\\
+\hat{b} = \frac{S_{ty}}{S_{tt}}, \quad\quad \hat{a} = \frac{S_y - S_x \hat{b}}{S}
+\end{gather}
+
+Where $n$ is the degree of fit, i.e. 1 for a linear fit, 2 for quadratic. 
 
 ---
 
 ## Logistic regression
+Design matrix $X$ must be chosen in such a way that teh inner product matrix $S$ is invertible. 
+
+$$
+S = X^T \cdot X
+$$
+
+*Logistic regression*: models the log-odds of an event as a linear combination of one or more independent variables. The data must be discrete counts or proportions, i.e. survivors of a treatment, successes in a trial. Uses a logistic function for mapping between real numbers $\lambda \in [-\infty, +\infty]$ and probabilities $\pi \in [0,1]$.
+
+Must define a **logit parameter** $\lambda \in [-\infty, +\infty]$ as a logarithmic function of probability $\pi \in [0,1]$
+
+$$
+\lambda = \ln(\frac{\pi}{1-\pi})
+$$
 
 ---
 
