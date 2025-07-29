@@ -364,6 +364,27 @@ Where $\beta_{j}$ are parameters and $\epsilon_{j}$ are error values. As an exam
 ---
 
 ## FDR correction
+*False Discovery Rate (FDR)*: The rate at which values called significant are actually false discoveries. Correct for this using various methods including:
+
+*Bonferroni*: The simplest of the FDR corrections, adjusts the $\alpha$ based on the number of simultaneous test $N$, i.e. a value is considered significant if $p < \alpha/N$. e.g. if a cancer study included $N=6033$ tests, and we were looking for $\alpha=0.05$, then we would get:
+
+$$
+\alpha_{corr} = \frac{\alpha}{N} = \frac{0.05}{6033} = 8.3\times 10^{-6}
+$$
+
+*Benjamini-Hochberg*: the current standard. For $N$ tests, start by ranking the p-values from smallest to largers and assigning them ranks $i$ where $i = (1,\ldots, N)$ where 1 is the smallest and $N$ is the largest. Then compare each p-value to the $p_i$ value, calculated as:
+
+$$
+p_i \le \frac{i}{N}q 
+$$
+
+Where $q$ is the pre-decided false-discovery rate, commonly $q=0.1$. Therefore, for the cancer study above, the $p_i$ for the first sample would be:
+
+$$
+p_i = \frac{i}{N}q = \frac{1}{6033}0.1 = 1.7 \times 10^{-5}
+$$
+
+We then find the largest p-value (rank $k$) that is less than its $p_i$ and select $k$ and all p-values ranked above it as significant, *even if some of those p-values are greater than their $p_i$!*. 
 
 ---
 
