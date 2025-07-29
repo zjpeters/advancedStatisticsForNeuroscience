@@ -250,10 +250,74 @@ $$
 
 *Logistic regression*: models the log-odds of an event as a linear combination of one or more independent variables. The data must be discrete counts or proportions, i.e. survivors of a treatment, successes in a trial. Uses a logistic function for mapping between real numbers $\lambda \in [-\infty, +\infty]$ and probabilities $\pi \in [0,1]$.
 
-Must define a **logit parameter** $\lambda \in [-\infty, +\infty]$ as a logarithmic function of probability $\pi \in [0,1]$
+Must define a **logit parameter** $\lambda \in [-\infty, +\infty]$ as a logarithmic function of probability $\pi \in [0,1]$. Logit is also called *log odds* since it is the log of the ratio of probability ($\pi$) and ($1 - \pi$) 
 
 $$
 \lambda = \ln(\frac{\pi}{1-\pi})
+$$
+
+*Design matrix*: A matrix made up of explanatory variables and their respective observations, with each column representing a variable and each row an observation
+
+For a set of linear equations with 4 variables $x_0, x_1, x_2, x_3$ such that $i = {1,\ldots,n}$ with $n=7$ observations:
+
+$$
+y_i = \beta_{0}x_{0i} + \beta_{1} x_{1i} + \beta_{2} x_{2i} + \beta_{3} x_{3i} + \epsilon_{i}
+$$
+
+The design matrix would look like:
+
+$$
+\begin{array}{| c | c | c | c |} 
+\hline
+x_0 & x_1 & x_2 & x_3\\  \hline
+1 & x_{11} & x_{21} & x_{31} \\ \hline
+1 & x_{12} & x_{22} & x_{32} \\ \hline
+1 & x_{13} & x_{23} & x_{33} \\ \hline
+1 & x_{14} & x_{24} & x_{34} \\ \hline
+1 & x_{15} & x_{25} & x_{35} \\ \hline
+1 & x_{16} & x_{26} & x_{36} \\ \hline
+1 & x_{17} & x_{27} & x_{37} \\ \hline
+\end{array} 
+$$
+
+And represent the equivalent of:
+
+$$
+\begin{pmatrix}
+y_1 \\
+y_2 \\
+y_3 \\
+y_4 \\
+y_5 \\
+y_6 \\
+y_7 \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & x_{11} & x_{21} & x_{31} \\
+1 & x_{12} & x_{22} & x_{32} \\
+1 & x_{13} & x_{23} & x_{33} \\
+1 & x_{14} & x_{24} & x_{34} \\
+1 & x_{15} & x_{25} & x_{35} \\
+1 & x_{16} & x_{26} & x_{36} \\
+1 & x_{17} & x_{27} & x_{37} \\
+\end{pmatrix} 
+\begin{pmatrix}
+\beta_0 \\
+\beta_1 \\
+\beta_2 \\
+\beta_3 \\
+\end{pmatrix}
++
+\begin{pmatrix}
+\epsilon_{1} \\
+\epsilon_{2} \\
+\epsilon_{3} \\
+\epsilon_{4} \\
+\epsilon_{5} \\
+\epsilon_{6} \\
+\epsilon_{7} \\
+\end{pmatrix}
 $$
 
 ---
@@ -277,3 +341,6 @@ $$
 $$
 \Phi(u) = \frac{1}{\sqrt{2\pi\sigma^2}}exp^{\frac{(x-\mu)^2}{2\sigma^2}}
 $$
+
+## Figures
+
