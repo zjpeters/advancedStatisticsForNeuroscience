@@ -29,14 +29,14 @@ header-includes:
 
 ## Mean, median, mode
 
-$\underline{Mean}$ is the average of a set. $\underline{Median}$ is the point that divides a distribution into two areas of equal size, i.e. the middle point (if dataset has an even number of points, take the average of the two center values). $\underline{Mode}$ is the most probable point (the most frequent number in the dataset). 
-
-Variability, how spread out are the observations in a distribution. Typically measured as a distance from the mean. $\underline{Variance}$ is the average squared difference from the mean.
+**Mean** is the average of a set. **Median** is the point that divides a distribution into two areas of equal size, i.e. the middle point (if dataset has an even number of points, take the average of the two center values). **Mode** is the most probable point (the most frequent number in the dataset). 
 
 *Mean*:
 $$
-\mu_{x} = \frac{1}{n} \sum^{n}_{i=1} x_i
+\mu_{x} = \langle x \rangle = \frac{1}{n} \sum^{n}_{i=1} x_i
 $$
+
+Variability, how spread out are the observations in a distribution. Typically measured as a distance from the mean. **Variance** is the average squared difference from the mean.
 
 *Variance*, true variance can only be calculated when the true mean ($\mu$) of the distribution is known:
 
