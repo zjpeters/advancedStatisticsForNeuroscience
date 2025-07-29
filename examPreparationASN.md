@@ -297,7 +297,7 @@ $$
 
 *Design matrix*: A matrix made up of explanatory variables and their respective observations, with each column representing a variable and each row an observation
 
-For a set of linear equations with 4 variables $x_0, x_1, x_2, x_3$ such that $i = {1,\ldots,n}$ with $n=7$ observations:
+For a set of linear equations with 4 predictor variables $x_0, x_1, x_2, x_3$ such that $i = {1,\ldots,n}$ with $n=7$ observations and the outcome (dependent variable) $y_i$:
 
 $$
 y_i = \beta_{0}x_{0i} + \beta_{1} x_{1i} + \beta_{2} x_{2i} + \beta_{3} x_{3i} + \epsilon_{i}
@@ -359,7 +359,7 @@ y_7 \\
 \end{pmatrix}
 $$
 
-Where $\beta_{j}$ are parameters and $\epsilon_{j}$ are error values. As an example, imagine a dataset where you had some output $y_i$, which could be something like blood pressure, and you were trying to predict this from some variables $x_0, x_1, x_2, x_3$, such as age, smoking status, and weight (in this case, $x_0$ is the y-intercept value, so we only have 3 variables). 
+Where $\beta_{j}$ are parameters/regression coefficients (estimated from data) and $\epsilon_{j}$ are random noise. As an example, imagine a dataset where you had some output $y_i$, which could be something like blood pressure, and you were trying to predict this from some variables $x_0, x_1, x_2, x_3$, such as age, smoking status, and weight (in this case, $x_0$ is the y-intercept value, so we only have 3 variables). 
 
 ---
 
@@ -409,7 +409,30 @@ $$
 ---
 
 ## Linear discriminant analysis
+*Linear discriminant analysis*: attempts to find the most discriminating projection axis for a set of data.
 
+Steps to LDA for two classes of vector observations $x \in X_1$ and $x \in X_2$:
+
+1. Find centroids and covariance matrices, where centroid is simply the mean of a vector
+
+$$
+m_1 = \frac{1}{n_1} \sum_{x\in X_1} x, \quad\quad m_2 = \frac{1}{n_2} \sum_{x\in X_2} x
+$$
+
+Covariace:
+
+\begin{gather}
+C_1 = \frac{1}{n_1} \sum{x\in X_1} (x - m_1)(x - m_1)^T \\
+C_2 = \frac{1}{n_2} \sum{x\in X_2} (x - m_2)(x - m_2)^T
+\end{gather}
+
+2. Project onto axis $w$
+
+3. Find the projection acix that maximizes the objective function which quantifies the discriminability of the two sets of projected values in terms of a d' or z-score value.
+
+$$
+\frac{m_1 - m_2}{\sqrt{\sigma_{1}^{2} + \sigma_{2}^{2}}}
+$$
 ---
 
 ## Formulas
