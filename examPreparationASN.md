@@ -26,6 +26,7 @@ header-includes:
 10. [Linear discriminant analysis (10pt)](#linear-discriminant-analysis)
     - explain computational steps of LDA and potentially formulas
 11. [Formulas](#formulas)
+12. [Figures](#figures)
 
 ## Mean, median, mode
 
@@ -60,7 +61,7 @@ Unimodal, bimodal, multimodal **be careful not to confuse *bimodal* and *binomia
 
 *Gamma distribution* - a two parameter distribution that includes the shape parameter $\alpha$ and scale parameter $\theta$ (or instead of the scale parameter, the rate parameter $\lambda = 1/\theta$). Exponential and chi-square distributions are examples of gamma distributions. Only include positive numbers.
 
-*Lognormal distribution* - grows in multiplicative scale, always takes positive values. Many biological observations happen in lognormal distribution
+*Lognormal distribution* - grows in multiplicative scale, always takes positive values. The log of a lognormal distribution is normally distributed. Many biological observations happen in lognormal distribution
 
 *Bernoulli distribution*- a distribution describing the outcome of a binary experiment. A special case of the binomial distribution.
 
@@ -459,3 +460,8 @@ $$
 
 ## Figures
 
+![Normal distribution](imagesForExamPrep/normalDistribution.png)
+
+![Gamma distribution](imagesForExamPrep/gammaDistribution.png)
+
+![Poisson distribution](imagesForExamPrep/poissonDistribution.png)
