@@ -390,6 +390,22 @@ We then find the largest p-value (rank $k$) that is less than its $p_i$ and sele
 
 ## Boostrapping
 
+*Bootstrapping*: a means of estimating the distribution of a dataset by resampling the data (with or without replacement, depending the method). Estimates the unknown distribution $F$ by generating many **bootstrap samples** from the original sample.You can obtai confidene intervals for any kind of sample distribution by bootstrapping many times.
+
+*Jackknife estimate*: from your sample $x$ remove one observation $x_i$ and call the new, smaller sample $x_{(i)}$, and call the statistic we are wanting to perform $\theta_{(i)} = s(x_{(i)})$ ($s$ could be any sort of statistic, such as the mean). 
+
+*Permutation (shuffling) testing*: Use sampling without replacement to test the null hypothesis. If values can be exchanged between the two samples without changing the resulting test statistic, there is no difference. Procedure goes as follows:
+
+1. Compute t-statistic for original data $T_1$
+2. Compute t-statistic for all possible permutations $T_i$ where $i = 1, \ldots, nP$, where $nP$ is the number of possible permutations
+3. Determine rank of t-statistic for original data, where if $T_i \ge T_1$ is true, value is 1, 0 if false. 
+$$
+r = \sum_{i}^{nP} [T_i \ge T_1]
+$$
+4. Determine p-value:
+$$
+p = \frac{r}{nP}
+$$
 ---
 
 ## Linear discriminant analysis
@@ -409,6 +425,13 @@ For Poisson distributed observations $y$ with mean $\mu$, the Poisson distributi
 
 $$
 f(y) = \frac{\mu^y e^{-\mu}}{y!}
+$$
+
+**Jackknife standard error**
+Doesn't ask us to calculate this, so including it down here
+
+$$
+SE_{jack} = \left[ \frac{(n-1)}{n} \sum_{i=1}^{n} (\theta_{(i)} - \theta_{(\cdot)})^2 \right]^{-\frac{1}{2}}, \quad\quad \theta_{(\cdot)} = \frac{1}{n} \sum_{i=1}^{n} \theta_{(i)}
 $$
 
 ## Figures
