@@ -1,3 +1,8 @@
+---
+header-includes:
+  - \usepackage{mathrsfs}
+---
+
 # Advanced Statistics for Neuroscience Exam preparation
 ## Topics
 1. [Mean, median, mode (10pt)](#mean-median-mode)
@@ -239,21 +244,55 @@ t_i = (x_{i}^{n} - \frac{S_x}{S}), \quad\quad S_tt = \sum_{i} t_{i}^{2}, \quad\q
 
 Where $n$ is the degree of fit, i.e. 1 for a linear fit, 2 for quadratic. 
 
+*Bayesian Information Criterion (BIC)*: The BIC is a heuristic that compares quality of model fit and model complexity, i.e.
+
+$$
+BIC = -2 \log(\hat{\mathscr{L}}) + p \log(n)
+$$
+
+Where $\hat{\mathscr{L}} = f_1(x)$ is the likelihood of the observed data $x$ under the model, $p$ is the number of model parameters, and $n$ is the number of data points. 
+
+Which, for normally distributed observations becomes:
+
+$$
+BIC = n\log \langle\sigma_{\epsilon}^{2}\rangle + p\log(n)
+$$
+
+Where $\langle \sigma_{epsilon}^{2} \rangle$ is the residual sum of squares:
+
+$$
+\langle \sigma_{\epsilon}^{2} \rangle = \frac{1}{n}\sum_{i=1}^{n}(x_i - \mu)^2
+$$
+
+**A lower BIC is a better model.** i.e. if you have two models, $\mathscr{M}_1$ with a BIC of 80, and $\mathscr{M}_2$ with a BIC of 30, $\mathscr{M}_2$ is the better model.
+
 ---
 
 ## Logistic regression
-Design matrix $X$ must be chosen in such a way that teh inner product matrix $S$ is invertible. 
+Design matrix $X$ must be chosen in such a way that the inner product matrix $S$ is invertible. 
 
 $$
 S = X^T \cdot X
 $$
 
-*Logistic regression*: models the log-odds of an event as a linear combination of one or more independent variables. The data must be discrete counts or proportions, i.e. survivors of a treatment, successes in a trial. Uses a logistic function for mapping between real numbers $\lambda \in [-\infty, +\infty]$ and probabilities $\pi \in [0,1]$.
+*Logistic regression*: models the log-odds of an event as a linear combination of one or more independent variables. Is a special case of a *Generalized Linear Model (GLM)*. The data must be discrete counts or proportions, i.e. survivors of a treatment, successes in a trial. Uses a logistic function for mapping between real numbers $\lambda \in [-\infty, +\infty]$ and probabilities $\pi \in [0,1]$.
 
 Must define a **logit parameter** $\lambda \in [-\infty, +\infty]$ as a logarithmic function of probability $\pi \in [0,1]$. Logit is also called *log odds* since it is the log of the ratio of probability ($\pi$) and ($1 - \pi$) 
 
 $$
 \lambda = \ln(\frac{\pi}{1-\pi})
+$$
+
+Variance of a binomial distribution is:
+
+$$
+\sigma^{2} = n \pi (1-\pi)
+$$
+
+This is also written as $\sigma_{2} = npq$ where $n$ is the number of trials, $p$ is the probability of success, and $q$ is the probability of failure. This can also give us the standard error:
+
+$$
+SE_{\pi} = \sqrt{\frac{\pi_{i}(1-\pi_{i})}{n_i}}
 $$
 
 *Design matrix*: A matrix made up of explanatory variables and their respective observations, with each column representing a variable and each row an observation
@@ -320,6 +359,8 @@ y_7 \\
 \end{pmatrix}
 $$
 
+Where $\beta_{j}$ are parameters and $\epsilon_{j}$ are error values. As an example, imagine a dataset where you had some output $y_i$, which could be something like blood pressure, and you were trying to predict this from some variables $x_0, x_1, x_2, x_3$, such as age, smoking status, and weight (in this case, $x_0$ is the y-intercept value, so we only have 3 variables). 
+
 ---
 
 ## FDR correction
@@ -339,7 +380,14 @@ $$
 **Normal Distribution**
 
 $$
-\Phi(u) = \frac{1}{\sqrt{2\pi\sigma^2}}exp^{\frac{(x-\mu)^2}{2\sigma^2}}
+\Phi(u) = \frac{1}{\sqrt{2\pi\sigma^2}}e^{\frac{(x-\mu)^2}{2\sigma^2}}
+$$
+
+**Poisson Distribution**
+For Poisson distributed observations $y$ with mean $\mu$, the Poisson distribution is:
+
+$$
+f(y) = \frac{\mu^y e^{-\mu}}{y!}
 $$
 
 ## Figures
