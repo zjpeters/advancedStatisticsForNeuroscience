@@ -110,10 +110,10 @@ $$
 *T-test* is a test for whether two populations differ under the null distribution. 
 
 $$
-t_m = \frac{m - \mu_{0}}{s^2/\sqrt{n}}, \quad\quad m = \frac{1}{n}\sum_{i}x_i, \quad\quad s^2 = \frac{1}{n-1}\sum_{i}(x_i - m)^2
+t_m = \frac{m - \mu_{0}}{s/\sqrt{n}}, \quad\quad m = \frac{1}{n}\sum_{i}x_i, \quad\quad s^2 = \frac{1}{n-1}\sum_{i}(x_i - m)^2
 $$
 
-Where $\mu_{0}$ is the hypothetical true mean that we are testing our sample mean against.
+Where $\mu_{0}$ is the hypothetical true mean that we are testing our sample mean $m$ against and $s$ is sample standard deviation.
 
 The Student's t-distribution tells us how an observed sample mean is distributed around the true mean when we don't know the true variance. We can use the t-test for performing hypothesis testing, i.e. that the hypothesis is either: *due to chance* (the null hypothesis $H_0$) or *not due to chance* (alternate hypothesis $H_1$). This requires us to select a level of significance, known as the $\alpha$, often something like $\alpha = 0.05$ (5%) or lower. In a normal distribution, $~95.4%$ of the probability mass function falls within $\pm2\sigma$ of $\mu$. Typically the p-value is selected from a table that correlates p-values to t-statistics
 
@@ -465,3 +465,5 @@ $$
 ![Gamma distribution](imagesForExamPrep/gammaDistribution.png)
 
 ![Poisson distribution](imagesForExamPrep/poissonDistribution.png)
+
+![Linear regression fits](imagesForExamPrep/linearRegression.png)
