@@ -21,7 +21,7 @@ header-includes:
     - probabilities and logits, construction of design matrices, formula for binomial variance
 8. [FDR correction (10pt)](#fdr-correction)
     - Apply Benjamini-Hochberg criterion to p-values
-9. [Boostratpping (10pt)](#boostratpping)
+9. [Boostrapping (10pt)](#boostratpping)
     - Explain computational steps of bootstrapping
 10. [Linear discriminant analysis (10pt)](#linear-discriminant-analysis)
     - explain computational steps of LDA and potentially formulas
@@ -276,7 +276,7 @@ $$
 S = X^T \cdot X
 $$
 
-*Logistic regression*: models the log-odds of an event as a linear combination of one or more independent variables. Is a special case of a *Generalized Linear Model (GLM)*. The data must be discrete counts or proportions, i.e. survivors of a treatment, successes in a trial. Uses a logistic function for mapping between real numbers $\lambda \in [-\infty, +\infty]$ and probabilities $\pi \in [0,1]$.
+*Logistic regression*: models the log-odds of an event as a linear combination of one or more independent variables. Is a special case of a *Generalized Linear Model (GLM)*. The data must be discrete counts or proportions, i.e. survivors of a treatment, successes in a trial. Uses a logistic function for mapping between real numbers $\lambda \in [-\infty, +\infty]$ and probabilities $\pi \in [0,1]$. Works by fitting a sigmoid curve to the data. Example could be likelihood of passing an exam on the y-axis, with hours studied on the x-axis. Since the question is binary "pass or fail", the sigmoid curve for this would start at a likelihood of 0 at 0 hours studied, and at some point flip to a likelihood of 1.0 after a certain number of hours studied.
 
 Must define a **logit parameter** $\lambda \in [-\infty, +\infty]$ as a logarithmic function of probability $\pi \in [0,1]$. Logit is also called *log odds* since it is the log of the ratio of probability ($\pi$) and ($1 - \pi$) 
 
