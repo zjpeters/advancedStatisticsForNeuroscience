@@ -51,6 +51,12 @@ $$
 Std(x) = \sqrt{Var(x)}
 $$
 
+### Questions from exam
+
+- Calculate the mean, median, and mode for sets of data points
+
+- Write the formulas for mean, variance, standard deviation, and standard error
+
 ---
 
 ## Distributions
@@ -70,6 +76,10 @@ Unimodal, bimodal, multimodal **be careful not to confuse *bimodal* and *binomia
 When the area to the left of the mode is larger, it is called 'negative skew', when the right area to the right of mode is larger, it is 'positive skew'
 
 *Chi-square distribution* $\chi^2$
+
+### Questions from exam
+
+- Know whether distribution include only integers, only positive values, whether they are infinite, and how many parameters are used
 
 ---
 
@@ -174,6 +184,12 @@ $$
 $$
 
 Where $N$ is the number of distinct categories the observations are binned into, $i$ is all of the integers between {${1,...,N}$}, $n_i$ is the number observed in each bin, and $n_e$ is the number expected per bin. 
+
+### Questions from exam
+
+- For t-test, f-test, chi-squared, and KS, know what each is testing
+
+---
 
 ## Measures for pairwise association
 
@@ -387,6 +403,10 @@ $$
 
 We then find the largest p-value (rank $k$) that is less than its $p_i$ and select $k$ and all p-values ranked above it as significant, *even if some of those p-values are greater than their $p_i$!*. 
 
+### Questions from exam
+
+- Given a set of p-values and $(i/N)$, calculate which p-values are below the $q(i/N)$ threshold. This required multiplying the given $(i/N)$ values by $q$ and comparing each given value to this number
+
 ---
 
 ## Boostrapping
@@ -407,6 +427,7 @@ $$
 $$
 p = \frac{r}{nP}
 $$
+
 ---
 
 ## Linear discriminant analysis
@@ -434,6 +455,12 @@ C_2 = \frac{1}{n_2} \sum{x\in X_2} (x - m_2)(x - m_2)^T
 $$
 \frac{m_1 - m_2}{\sqrt{\sigma_{1}^{2} + \sigma_{2}^{2}}}
 $$
+
+
+### Questions from exam
+
+- Write the formula for LDA
+
 ---
 
 ## Formulas
