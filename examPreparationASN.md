@@ -378,6 +378,10 @@ $$
 
 Where $\beta_{j}$ are parameters/regression coefficients (estimated from data) and $\epsilon_{j}$ are random noise. As an example, imagine a dataset where you had some output $y_i$, which could be something like blood pressure, and you were trying to predict this from some variables $x_0, x_1, x_2, x_3$, such as age, smoking status, and weight (in this case, $x_0$ is the y-intercept value, so we only have 3 variables). 
 
+### Questions from exam
+
+- Complete the design matrix given the first and last values in the matrix. Included some algebra in the description, but it should be filled in with 1's and 0's
+
 ---
 
 ## FDR correction
