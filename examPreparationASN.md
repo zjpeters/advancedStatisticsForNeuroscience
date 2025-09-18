@@ -21,7 +21,7 @@ header-includes:
     - probabilities and logits, construction of design matrices, formula for binomial variance
 8. [FDR correction (10pt)](#fdr-correction)
     - Apply Benjamini-Hochberg criterion to p-values
-9. [Boostrapping (10pt)](#boostratpping)
+9. [Bootstrapping (10pt)](#bootstrapping)
     - Explain computational steps of bootstrapping
 10. [Linear discriminant analysis (10pt)](#linear-discriminant-analysis)
     - explain computational steps of LDA and potentially formulas
@@ -413,9 +413,9 @@ We then find the largest p-value (rank $k$) that is less than its $p_i$ and sele
 
 ---
 
-## Boostrapping
+## Bootstrapping
 
-*Bootstrapping*: a means of estimating the distribution of a dataset by resampling the data (with or without replacement, depending the method). Estimates the unknown distribution $F$ by generating many **bootstrap samples** from the original sample.You can obtai confidene intervals for any kind of sample distribution by bootstrapping many times.
+*Bootstrapping*: a means of estimating the distribution of a dataset by resampling the data (with or without replacement, depending the method). Estimates the unknown distribution $F$ by generating many **bootstrap samples** from the original sample.You can obtain confidence intervals for any kind of sample distribution by bootstrapping many times.
 
 *Jackknife estimate*: from your sample $x$ remove one observation $x_i$ and call the new, smaller sample $x_{(i)}$, and call the statistic we are wanting to perform $\theta_{(i)} = s(x_{(i)})$ ($s$ could be any sort of statistic, such as the mean). 
 
