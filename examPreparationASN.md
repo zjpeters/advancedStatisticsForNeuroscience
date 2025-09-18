@@ -198,7 +198,7 @@ Parametric tests assume normal distribution, non-parametric tests don't.
 *Pearson's r*: also known as linear correlation coefficient, is a parametric test. Given paired observations $(x_i, y_i)$, with $i=1,2,\ldots,N$, r is calculated as:
 
 $$
-r = \frac{(x_i - \mu_{x})(y_i - \mu_{y})}{\sqrt{\sum_{i}(x_i - \mu_{x})^2} \sqrt{\sum_{i}(y_i - \mu_{y})^2}}
+r = \frac{\sum(x_i - \mu_{x})(y_i - \mu_{y})}{\sqrt{\sum_{i}(x_i - \mu_{x})^2} \sqrt{\sum_{i}(y_i - \mu_{y})^2}}
 $$
 
 Calculation of variance ignores Bessel's correction since the $N$ is assumed to be large. 
